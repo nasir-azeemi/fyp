@@ -1,0 +1,66 @@
+.actionBtn {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-size: 1.2em;
+}
+  
+.snapshot {
+    text-align: center;
+    img {
+      max-width: 800px;
+      max-height: 800px;
+    }
+}
+  
+ul.links {
+    padding-bottom: 20px;
+}
+
+.rcorners1 {
+    border-radius: 25px;
+    // background: lightgrey;
+    background: white;
+    padding: 20px; 
+    width: auto;
+    height: auto;  
+    color: #221668;
+    text-align: center;
+}
+
+.start-button, .download-button {
+    background-color: #7ffe9f; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+.stop-button {
+background-color: rgba(118, 146, 254, 0.69); /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin-bottom: 10px;
+
+}
+
+.cancel-button {
+background-color: #af7541; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin-bottom: 10px;
+
+}

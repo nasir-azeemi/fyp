@@ -1,0 +1,390 @@
+<!-- <app-navbar-style-three></app-navbar-style-three>
+
+<div style="text-align:center">
+    <h1>
+      Ngx-Webcam Demo
+    </h1>
+  
+    <div>
+      <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+              [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+              [videoOptions]="videoOptions"
+              [imageQuality]="1"
+              (cameraSwitched)="cameraWasSwitched($event)"
+              (initError)="handleInitError($event)"
+      ></webcam>
+      <br/>
+      <button class="actionBtn" (click)="triggerSnapshot();">Take A Snapshot</button>
+      <button class="actionBtn" (click)="toggleWebcam();">Toggle Webcam</button>
+      <br/>
+      <button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button>
+      <input id="cameraSwitchCheckbox" type="checkbox" [(ngModel)]="allowCameraSwitch"><label for="cameraSwitchCheckbox">Allow Camera Switch</label>
+      <br/>
+      DeviceId: <input id="deviceId" type="text" [(ngModel)]="deviceId" style="width: 500px">
+      <button (click)="showNextWebcam(deviceId);">Activate</button>
+    </div>
+</div>
+  
+<div class="snapshot" *ngIf="webcamImage">
+    <h2>Nice one!</h2>
+    <img [src]="webcamImage.imageAsDataUrl"/>
+</div>
+
+<h4 *ngIf="errors.length > 0">Messages:</h4>
+<ul *ngFor="let error of errors">
+    <li>{{error | json}}</li>
+</ul>
+
+<h2>Like this project on GitHub:</h2>
+<ul class="links">
+    <li>
+        <h2><a target="_blank" rel="noopener" href="https://github.com/basst314/ngx-webcam">Ngx-Webcam / GitHub</a></h2>
+    </li>
+</ul>
+
+<app-footer-style-two></app-footer-style-two> -->
+<!-- Navbar -->
+<app-navbar-style-three></app-navbar-style-three>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Interview</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a routerLink="/">Home</a>
+                        </li>
+                        <li><span>/</span></li>
+                        <li>View Answers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Dashboard -->
+<div class="dashboard-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-lg-4 col-md-12">
+                <div class="profile-item">
+                    <img src="assets/img/dashboard1.jpg" alt="Dashboard">
+                    <h2 *ngIf="global_vars.user_type == 'candidate'">{{ global_vars.user_data.Name }}</h2>
+                    <span *ngIf="global_vars.user_type == 'candidate'">{{ global_vars.user_data.Job_Title }}</span>
+
+                    <h2 *ngIf="global_vars.user_type == 'employer'">{{ global_vars.employer_data.Organization_Name }}</h2>
+                </div>
+
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class='bx bx-notepad'></i> My Interviews</a>
+
+                    <a  routerLink="/login">
+                        <div class="profile-list"><i class='bx bx-log-out'></i> Logout</div>
+                    </a>
+                </div>
+            </div> -->
+
+            <!-- <div class="col-lg-8 col-md-12"> -->
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="profile-content">
+                            <form>
+                                <div class="profile-content-inner">
+                                    <h2>Questions</h2>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="rcorners1" style="width: auto;">
+                                              <table style="height: auto; width: 100%;">
+                                                <tr>
+                                                  <td style="padding: 20px; width: 30%;">
+                                                <h3>Question 1</h3>
+                                                <br>
+                                                <p style="width: 100%; font-size: large; justify-self: left;">{{ global_vars.viewing_job["job"]["Question_1"] }}</p>
+                                                <!-- <p style="width: 100%; font-size: medium; justify-self: left;"><i class="flaticon-send"></i> {{ interview["Location"] }}</p> -->
+                                                <!-- <button type="submit" *ngIf="!isVideoRecording" class="btn dashboard-btn" (click)="startVideoRecording(2)">Record Answer</button>
+                                                <button class="btn dashboard-btn" *ngIf="isVideoRecording && !videoBlobUrl && current_question==2" (click)="stopVideoRecording()">Stop Video Recording</button> -->
+                                                <br><br>
+                                                <div style="border-style: solid; border-width: 0.5px; border-color: #f5f5f5; border-radius: 5%; background-color: #f5f5f5;">   
+                                                <h3>Emotions</h3>
+                                                <br>
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            Primary
+                                                        </th>
+                                                        <th>
+                                                            Secondary
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="vertical-align: top">
+                                                            <p style="width: 100%; font-size: medium; color: #8d8d8d; margin-left: 5px;">
+                                                                Happiness: {{ global_vars.videos['question_1_basic']['Happiness'] * 100 | number : '1.0-1' }}%<br>
+                                                                Surprise: {{ global_vars.videos['question_1_basic']['Surprise'] * 100 | number : '1.0-1'}}%<br>
+                                                                Neutral: {{ global_vars.videos['question_1_basic']['Neutral'] * 100 | number : '1.0-1' }}%<br>
+                                                                Sadness: {{ global_vars.videos['question_1_basic']['Sadness'] * 100 | number : '1.0-1' }}%<br>
+                                                                Fear: {{ global_vars.videos['question_1_basic']['Fear'] * 100 | number : '1.0-1' }}%<br>
+                                                                Anger: {{ global_vars.videos['question_1_basic']['Anger'] * 100 | number : '1.0-1' }}%<br>
+                                                                Disgust: {{ global_vars.videos['question_1_basic']['Disgust'] * 100 | number : '1.0-1' }}%<br>
+                                                                Contempt: {{ global_vars.videos['question_1_basic']['Contempt'] * 100 | number : '1.0-1' }}%<br>
+                                                            </p>
+                                                        </td>
+                                                        <td style="vertical-align: top">
+                                                            <p style="width: 100%; font-size: medium; color: #8d8d8d; margin-left: 10px;">
+                                                                Relaxed: {{ global_vars.videos['question_1']['Relaxed'] * 100 | number : '1.0-1' }}%<br>
+                                                                Nervous: {{ global_vars.videos['question_1']['Nervous'] * 100 | number : '1.0-1'}}%<br>
+                                                                Excited: {{ global_vars.videos['question_1']['Excited'] * 100 | number : '1.0-1' }}%<br>
+                                                                Stress: {{ global_vars.videos['question_1']['Stress'] * 100 | number : '1.0-1' }}%<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                            </td>
+                                                <br><br>
+                                                <td>
+                                                <div id="my-app">
+                                                    <div>
+                                                      <div>Video</div>
+                                                    </div>
+                                                    <div class="row" style="width: 100%;">
+                                                        <div class="text-center" style="width: 100%;">
+                                                          <h3>
+                                                            <video controls style="width: 100%; height: auto; justify-self: center; border: solid;">
+                                                              <source [src]="global_vars.videos['video_1']" type="video/webm">
+                                                            </video>
+                                                          </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="rcorners1" style="width: auto;">
+                                              <table style="height: auto; width: 100%;">
+                                                <tr>
+                                                  <td style="padding: 20px; width: 30%;">
+                                                <h3>Question 2</h3>
+                                                <br>
+                                                <p style="width: 100%; font-size: large; justify-self: left;">{{ global_vars.viewing_job["job"]["Question_2"] }}</p>
+                                                <!-- <p style="width: 100%; font-size: medium; justify-self: left;"><i class="flaticon-send"></i> {{ interview["Location"] }}</p> -->
+                                                <!-- <button type="submit" *ngIf="!isVideoRecording" class="btn dashboard-btn" (click)="startVideoRecording(2)">Record Answer</button>
+                                                <button class="btn dashboard-btn" *ngIf="isVideoRecording && !videoBlobUrl && current_question==2" (click)="stopVideoRecording()">Stop Video Recording</button> -->
+                                                <br><br>
+                                                <div style="border-style: solid; border-width: 0.5px; border-color: #f5f5f5; border-radius: 5%; background-color: #f5f5f5;">   
+                                                <h3>Emotions</h3>
+                                                <br>
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            Primary
+                                                        </th>
+                                                        <th>
+                                                            Secondary
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="vertical-align: top">
+                                                            <p style="width: 100%; font-size: medium; color: #8d8d8d; margin-left: 5px;">
+                                                                Happiness: {{ global_vars.videos['question_2_basic']['Happiness'] * 100 | number : '1.0-1' }}%<br>
+                                                                Surprise: {{ global_vars.videos['question_2_basic']['Surprise'] * 100 | number : '1.0-1'}}%<br>
+                                                                Neutral: {{ global_vars.videos['question_2_basic']['Neutral'] * 100 | number : '1.0-1' }}%<br>
+                                                                Sadness: {{ global_vars.videos['question_2_basic']['Sadness'] * 100 | number : '1.0-1' }}%<br>
+                                                                Fear: {{ global_vars.videos['question_2_basic']['Fear'] * 100 | number : '1.0-1' }}%<br>
+                                                                Anger: {{ global_vars.videos['question_2_basic']['Anger'] * 100 | number : '1.0-1' }}%<br>
+                                                                Disgust: {{ global_vars.videos['question_2_basic']['Disgust'] * 100 | number : '1.0-1' }}%<br>
+                                                                Contempt: {{ global_vars.videos['question_2_basic']['Contempt'] * 100 | number : '1.0-1' }}%<br>
+                                                            </p>
+                                                        </td>
+                                                        <td style="vertical-align: top">
+                                                            <p style="width: 100%; font-size: medium; color: #8d8d8d; margin-left: 10px;">
+                                                                Relaxed: {{ global_vars.videos['question_2']['Relaxed'] * 100 | number : '1.0-1' }}%<br>
+                                                                Nervous: {{ global_vars.videos['question_2']['Nervous'] * 100 | number : '1.0-1'}}%<br>
+                                                                Excited: {{ global_vars.videos['question_2']['Excited'] * 100 | number : '1.0-1' }}%<br>
+                                                                Stress: {{ global_vars.videos['question_2']['Stress'] * 100 | number : '1.0-1' }}%<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                            </td>
+                                                <br><br>
+                                                <td>
+                                                <div id="my-app">
+                                                    <div>
+                                                      <div>Video</div>
+                                                    </div>
+                                                    <div class="row" style="width: 100%;">
+                                                        <div class="text-center" style="width: 100%;">
+                                                          <h3>
+                                                            <video controls style="width: 100%; height: auto; justify-self: center; border: solid;">
+                                                              <source [src]="global_vars.videos['video_2']" type="video/webm">
+                                                            </video>
+                                                          </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="rcorners1" style="width: auto;">
+                                              <table style="height: auto; width: 100%;">
+                                                <tr>
+                                                  <td style="padding: 20px; width: 30%;">
+                                                <h3>Question 3</h3>
+                                                <br>
+                                                <p style="width: 100%; font-size: large; justify-self: left;">{{ global_vars.viewing_job["job"]["Question_3"] }}</p>
+                                                <!-- <p style="width: 100%; font-size: medium; justify-self: left;"><i class="flaticon-send"></i> {{ interview["Location"] }}</p> -->
+                                                <!-- <button type="submit" *ngIf="!isVideoRecording" class="btn dashboard-btn" (click)="startVideoRecording(2)">Record Answer</button>
+                                                <button class="btn dashboard-btn" *ngIf="isVideoRecording && !videoBlobUrl && current_question==2" (click)="stopVideoRecording()">Stop Video Recording</button> -->
+                                                <br><br>
+                                                <div style="border-style: solid; border-width: 0.5px; border-color: #f5f5f5; border-radius: 5%; background-color: #f5f5f5;">   
+                                                <h3>Emotions</h3>
+                                                <br>
+                                                <table>
+                                                    <tr>
+                                                        <th>
+                                                            Primary
+                                                        </th>
+                                                        <th>
+                                                            Secondary
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="vertical-align: top">
+                                                            <p style="width: 100%; font-size: medium; color: #8d8d8d; margin-left: 5px;">
+                                                                Happiness: {{ global_vars.videos['question_3_basic']['Happiness'] * 100 | number : '1.0-1' }}%<br>
+                                                                Surprise: {{ global_vars.videos['question_3_basic']['Surprise'] * 100 | number : '1.0-1'}}%<br>
+                                                                Neutral: {{ global_vars.videos['question_3_basic']['Neutral'] * 100 | number : '1.0-1' }}%<br>
+                                                                Sadness: {{ global_vars.videos['question_3_basic']['Sadness'] * 100 | number : '1.0-1' }}%<br>
+                                                                Fear: {{ global_vars.videos['question_3_basic']['Fear'] * 100 | number : '1.0-1' }}%<br>
+                                                                Anger: {{ global_vars.videos['question_3_basic']['Anger'] * 100 | number : '1.0-1' }}%<br>
+                                                                Disgust: {{ global_vars.videos['question_3_basic']['Disgust'] * 100 | number : '1.0-1' }}%<br>
+                                                                Contempt: {{ global_vars.videos['question_3_basic']['Contempt'] * 100 | number : '1.0-1' }}%<br>
+                                                            </p>
+                                                        </td>
+                                                        <td style="vertical-align: top">
+                                                            <p style="width: 100%; font-size: medium; color: #8d8d8d; margin-left: 10px;">
+                                                                Relaxed: {{ global_vars.videos['question_3']['Relaxed'] * 100 | number : '1.0-1' }}%<br>
+                                                                Nervous: {{ global_vars.videos['question_3']['Nervous'] * 100 | number : '1.0-1'}}%<br>
+                                                                Excited: {{ global_vars.videos['question_3']['Excited'] * 100 | number : '1.0-1' }}%<br>
+                                                                Stress: {{ global_vars.videos['question_3']['Stress'] * 100 | number : '1.0-1' }}%<br>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                            </td>
+                                                <br><br>
+                                                <td>
+                                                <div id="my-app">
+                                                    <div>
+                                                      <div>Video</div>
+                                                    </div>
+                                                    <div class="row" style="width: 100%;">
+                                                        <div class="text-center" style="width: 100%;">
+                                                          <h3>
+                                                            <video controls style="width: 100%; height: auto; justify-self: center; border: solid;">
+                                                              <source [src]="global_vars.videos['video_3']" type="video/webm">
+                                                            </video>
+                                                          </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <!-- <button type="submit" class="btn dashboard-btn" (click)="end_interview()">End Interview</button> -->
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div class="employer-item">
+                            <a routerLink="/job-details">
+                                <img src="assets/img/home-one/job1.png" alt="Employer">
+                                <h3>Product Designer</h3>
+                                <ul>
+                                    <li><i class="flaticon-send"></i> Los Angeles, CS, USA</li>
+                                    <li>5 months ago</li>
+                                </ul>
+                                <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                                <span class="span-one">Accounting</span>
+                                <span class="span-two">FULL TIME</span>
+                            </a>
+                        </div>
+
+                        <div class="employer-item">
+                            <a routerLink="/job-details">
+                                <img src="assets/img/home-one/job2.png" alt="Employer">
+                                <h3>Sr. Shopify Developer</h3>
+                                <ul>
+                                    <li><i class="flaticon-send"></i> Houston, TX, USA</li>
+                                    <li>4 months ago</li>
+                                </ul>
+                                <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                <span class="span-one">Accounting</span>
+                                <span class="span-two two">FULL TIME</span>
+                            </a>
+                        </div>
+
+                        <div class="employer-item">
+                            <a routerLink="/job-details">
+                                <img src="assets/img/home-one/job3.png" alt="Employer">
+                                <h3>Tax Manager</h3>
+                                <ul>
+                                    <li><i class="flaticon-send"></i> Ho Chi Minh City, Vietnam</li>
+                                    <li>6 months ago</li>
+                                </ul>
+                                <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                <span class="span-one two">Broardcasting</span>
+                                <span class="span-two three">FREELANCER</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+          </div>
+    </div>
+</div>
+<!-- End Dashboard -->
+
+<!-- Footer -->
+<app-footer-style-two></app-footer-style-two>
+<!-- End Footer -->

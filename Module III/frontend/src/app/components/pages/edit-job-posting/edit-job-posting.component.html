@@ -1,0 +1,310 @@
+<!-- Navbar -->
+<app-navbar-style-three></app-navbar-style-three>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Post A Job</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a routerLink="/">Home</a>
+                            <a><span>/</span></a>
+                            <a routerLink="/dashboard-employer">Dashboard</a>
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Post A Job</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Post A Job -->
+<!-- <form> -->
+    <div class="post-job-area ptb-100">
+        <div class="container">
+            <div class="post-item">
+                <div class="section-title">
+                    <h2>Post A Job</h2>
+                    <p>Enter job details here to post it.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" class="form-control" placeholder="example@gmail.com" [(ngModel)]="job_posting_details.Email">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Phone:</label>
+                            <input type="text" class="form-control" placeholder="+123-456-789" [(ngModel)]="job_posting_details.Phone">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Location:</label>
+                            <input type="text" class="form-control" placeholder="Karachi, Pakistan" [(ngModel)]="job_posting_details.Location">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Job Title:</label>
+                            <input type="text" class="form-control" placeholder="Web Developer" [(ngModel)]="job_posting_details.Job_Title">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Job Type:</label>
+                            <select id="job_type">
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Freelancing">Freelancing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Job Category:</label>
+                            <input type="text" class="form-control" placeholder="Sales & Marketing" [(ngModel)]="job_posting_details.Job_Category">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Industry:</label>
+                            <input type="text" class="form-control" placeholder="Development" [(ngModel)]="job_posting_details.Industry">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Job Experience:</label>
+                            <select id="job_experience">
+                                <option value="0">0</option>
+                                <option value="0 - 1">0 - 1</option>
+                                <option value="1 - 2">1 - 2</option>
+                                <option value="2 - 3">2 - 3</option>
+                                <option value="3 - 4">3 - 4</option>
+                                <option value="4 - 5">4 - 5</option>
+                                <option value="5 - 6">5 - 6</option>
+                                <option value="6 - 7">6 - 7</option>
+                                <option value="7 - 8">7 - 8</option>
+                                <option value="8 - 9">8 - 9</option>
+                                <option value="9 - 10">9 - 10</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Job Qualification:</label>
+                            <select id="job_qualification">
+                                <option value="Certificate">Certificate</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="Bachelor Degree">Bachelor Degree</option>
+                                <option value="Master Degree">Master Degree</option>
+                                <option value="None">None</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label>Job Level:</label>
+                            <input type="text" class="form-control" placeholder="Employee/Management" [(ngModel)]="job_posting_details.Job_Level">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="post-job-area ptb-100">
+        <div class="container">
+            <div class="post-item">
+                <div class="section-title">
+                    <h2>Job Description</h2>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <div class="col-lg-12 col-md-24">
+                            <div class="form-group">
+                                <textarea class="form-control" [(ngModel)]="job_posting_details.Job_Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-job-area ptb-100">
+        <div class="container">
+            <div class="post-item">
+                <div class="section-title">
+                    <h2>Job Responsibilities</h2>
+                </div>
+
+                <div class="row">
+                    <div *ngFor="let res of job_posting_details.Job_Responsibilities; let i = index; trackBy:trackByFn">
+                        <div class="col-lg-12 col-md-24">
+                            <div class="form-group">
+                                <input type="text" class="form-control" [(ngModel)]="job_posting_details.Job_Responsibilities[i]">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-24 text-center">
+                            <button type="submit" class="btn dashboard-btn" (click)="remove_job_res(i)">-</button>
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-24 text-center">
+                    <button type="submit" class="btn dashboard-btn" (click)="add_job_res()">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-job-area ptb-100">
+        <div class="container">
+            <div class="post-item">
+                <div class="section-title">
+                    <h2>Job Requirements</h2>
+                </div>
+
+                <div class="row">
+                    <div *ngFor="let req of job_posting_details.Job_Requirements; let i = index; trackBy:trackByFn">
+                        <div class="col-lg-12 col-md-24">
+                            <div class="form-group">
+                                <input type="text" class="form-control" [(ngModel)]="job_posting_details.Job_Requirements[i]">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-24 text-center">
+                            <button type="submit" class="btn dashboard-btn" (click)="remove_job_req(i)">-</button>
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-24 text-center">
+                    <button type="submit" class="btn dashboard-btn" (click)="add_job_req()">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-job-area ptb-100">
+        <div class="container">
+            <div class="post-item">
+                <div class="section-title">
+                    <h2>Assessments Required</h2>
+                </div>
+
+                <div class="row">
+                    <div *ngFor="let assessment of job_posting_details.Assessments_Required; let i = index; trackBy:trackByFn">
+                        <div class="col-lg-12 col-md-24">
+                            <div class="form-group">
+                                <select id="assessment_required"  [(ngModel)]="job_posting_details.Assessments_Required[i]">
+                                    <option value="1">Personality Trait Score</option>
+                                    <option value="2">Know your Personality</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-24 text-center">
+                            <button type="submit" class="btn dashboard-btn" (click)="remove_assessment_required(i)">-</button>
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-24 text-center">
+                    <button type="submit" class="btn dashboard-btn" (click)="add_assessment_required()">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-job-area ptb-100">
+        <div class="container">
+            <div class="post-item">
+                <div class="section-title">
+                    <h2>Interview</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-24">
+                        <div class="form-group">
+                            <label>Interview Required:</label>
+                            <select id="interview_required">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-12 col-md-24">
+                        <div class="form-group">
+                            <label>Question 1:</label>
+                            <textarea class="form-control" [(ngModel)]="job_posting_details.Question_1"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-12 col-md-24">
+                        <div class="form-group">
+                            <label>Question 2:</label>
+                            <textarea class="form-control" [(ngModel)]="job_posting_details.Question_2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-24">
+                        <div class="form-group">
+                            <label>Question 3:</label>
+                            <textarea class="form-control" [(ngModel)]="job_posting_details.Question_3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="col-lg-12 col-md-24 text-center">
+                    <button type="submit" class="btn dashboard-btn" (click)="add_job_req()">+</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-area ptb-100">
+        <div class="container">
+            <div class="profile-content">
+
+                <p [hidden]="!error_show" style="color: red;">Email, Phone, Location and Job Title cannot be empty.</p>
+                <button type="submit" class="btn dashboard-btn" (click)="post_job()">Post A Job</button>
+            </div>
+        </div>
+    </div>
+<!-- </form> -->
+<!-- End Post A Job -->
+
+<!-- Footer -->
+<app-footer-style-two></app-footer-style-two>
+<!-- End Footer -->

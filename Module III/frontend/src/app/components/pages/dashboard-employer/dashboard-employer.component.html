@@ -1,0 +1,223 @@
+<div *ngIf="global_vars.updated_user_data_backend && global_vars.updated_education_data_backend && global_vars.updated_work_data_backend && global_vars.deleted_work_data_backend && global_vars.deleted_education_data_backend && global_vars.updated_employer_data_backend">
+
+    <!-- Navbar -->
+    <app-navbar-style-three></app-navbar-style-three>
+    <!-- End Navbar -->
+    
+    <!-- Page Title -->
+    <div class="page-title-area">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="title-item">
+                        <h2>Dashboard</h2>
+                        <ul>
+                            <li>
+                                <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                                <a routerLink="/">Home</a>
+                            </li>
+                            <li><span>/</span></li>
+                            <li>Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title -->
+    
+    <!-- Dashboard -->
+    <div class="dashboard-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="profile-item">
+                        <img width="200" height="200" [src]="global_vars.employer_avatar" alt="Dashboard">
+                        <!-- <h2>Tom Henry</h2> -->
+                        <h2>{{ global_vars.employer_data.Organization_Name }}</h2>
+                        <!-- <span>Web Developer</span> -->
+
+                        <!-- <span>{{ global_vars.user_data.Job_Title }}</span> -->
+                        <br>
+                    </div>
+    
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class='bx bx-user'></i> Organization's Profile</a>
+    
+                        <!-- <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                            <div class="profile-list">
+                                <i class='bx bxs-inbox'></i>
+                                Applied Jobs
+                            </div>
+                        </a> -->
+    
+                        <a routerLink="/active-job-listings">
+                            <div class="profile-list"><i class='bx bx-note'></i> Active Job Listings</div>
+                        </a>
+
+                        <!-- <a [routerLink]="" (click)="view_candidates()">
+                            <div class="profile-list"><i class='bx bx-note'></i> Active Candidate Applications</div>
+                        </a> -->
+
+                        <a routerLink="/post-a-job">
+                            <div class="profile-list"><i class='bx bx-note'></i> Post a Job</div>
+                        </a>
+
+                        <a [routerLink]="" (click)="view_company_page()">
+                            <div class="profile-list"><i class='bx bx-note'></i> View Company's Page</div>
+                        </a>
+    
+                        <a  routerLink="/login">
+                            <div class="profile-list"><i class='bx bx-log-out'></i> Logout</div>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="col-lg-8 col-md-12">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class="profile-content">
+                                <form>
+    
+                                    <div class="profile-content-inner">
+                                        <h2>About the Organization</h2>
+    
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <textarea disabled class="form-control" value={{this.global_vars.employer_data.About}}></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="profile-content-inner">
+                                        <h2>Your Vision</h2>
+    
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <textarea disabled class="form-control" value={{this.global_vars.employer_data.Vision}}></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="profile-content-inner">
+                                        <h2>Contact Information</h2>
+    
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Location:</label>
+                                                    <input disabled type="text" class="form-control" value={{this.global_vars.employer_data.Location}}>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Email:</label>
+                                                    <input disabled type="email" class="form-control" value={{this.global_vars.employer_data.Email}}>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Phone:</label>
+                                                    <input disabled type="text" class="form-control" value={{this.global_vars.employer_data.Contact_Number}}>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Website Link:</label>
+                                                    <input disabled type="text" class="form-control" value={{this.global_vars.employer_data.Website_Link}}>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+    
+                                    <div class="profile-content-inner">
+                                        <h2>Other Information</h2>
+    
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Team Size:</label>
+                                                    <input disabled type="text" class="form-control" value={{this.global_vars.employer_data.Team_Size}}>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Industry:</label>
+                                                    <input disabled type="text" class="form-control" value={{this.global_vars.employer_data.Industry}}>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label>Year Established:</label>
+                                                    <input disabled type="text" class="form-control" value={{this.global_vars.employer_data.Year_Established}}>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn dashboard-btn" (click)="to_dashboard_update()">Change Your Information</button>
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <div class="employer-item">
+                                <a routerLink="/job-details">
+                                    <img src="assets/img/home-one/job1.png" alt="Employer">
+                                    <h3>Product Designer</h3>
+                                    <ul>
+                                        <li><i class="flaticon-send"></i> Los Angeles, CS, USA</li>
+                                        <li>5 months ago</li>
+                                    </ul>
+                                    <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                                    <span class="span-one">Accounting</span>
+                                    <span class="span-two">FULL TIME</span>
+                                </a>
+                            </div>
+    
+                            <div class="employer-item">
+                                <a routerLink="/job-details">
+                                    <img src="assets/img/home-one/job2.png" alt="Employer">
+                                    <h3>Sr. Shopify Developer</h3>
+                                    <ul>
+                                        <li><i class="flaticon-send"></i> Houston, TX, USA</li>
+                                        <li>4 months ago</li>
+                                    </ul>
+                                    <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                    <span class="span-one">Accounting</span>
+                                    <span class="span-two two">FULL TIME</span>
+                                </a>
+                            </div>
+    
+                            <div class="employer-item">
+                                <a routerLink="/job-details">
+                                    <img src="assets/img/home-one/job3.png" alt="Employer">
+                                    <h3>Tax Manager</h3>
+                                    <ul>
+                                        <li><i class="flaticon-send"></i> Ho Chi Minh City, Vietnam</li>
+                                        <li>6 months ago</li>
+                                    </ul>
+                                    <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                    <span class="span-one two">Broardcasting</span>
+                                    <span class="span-two three">FREELANCER</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <!-- End Dashboard -->
+    
+    <!-- Footer -->
+    <app-footer-style-two></app-footer-style-two>
+    <!-- End Footer -->
+    </div>

@@ -1,0 +1,240 @@
+<!-- Navbar -->
+<app-navbar-style-three></app-navbar-style-three>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Candidates</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <span>/</span>
+                        </li>
+                        <li>
+                            Candidates
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Filter -->
+<div class="job-filter-area pt-100">
+    <div class="container">
+    </div>
+</div>
+<!-- End Filter -->
+
+
+<!-- Candidate -->
+<div class="candidate-area pb-100">
+    <div class="container">
+        <div class="row">
+            <h3>Job Applications</h3>
+            <div class="scrolling-wrapper" *ngFor="let candidate of global_vars.candidate_applications['job_applications']; let i = index">
+                <div style="border: dashed #fe0455 0.5px; width: auto; height: auto; border-radius: 10px; padding: 10px;">
+                    <table style="width: 100%; height: auto;">
+                        <tr style="width:auto;">
+                            <th style="width: auto; text-align: center;">
+                                <img style="height: 100px; width: 100px; border-radius: 50%;" [src]="candidate['avatar']" alt="Candidate">
+                                <h3><a routerLink="/candidate-details">{{candidate["Name"]}}</a></h3>
+                                <h6>Personality Type: <strong>{{candidate["personality"]}}</strong></h6>
+                                <!-- <br> -->
+                                <span>{{candidate["Job_Title"]}}</span>
+                            </th>
+                            <th>
+                                <label style="font-size: large;">Work Experience:</label>
+                                <ul class="experience">
+                                    <li *ngFor="let work of candidate['work_exp']">
+                                        <label style="color:#221668; font-weight: 400;">{{ work['Designation'] }}</label>
+                                        <label style="margin-left: 2%; font-weight: 400;">({{ work['Starting_Year'] }} - {{ work['Ending_Year'] }})</label>
+                                        <br>
+                                        <label style="font-weight: 400;">{{ work['Company'] }}</label>
+                                    </li>
+                                </ul>
+                                <label style="font-size: large;">Education:</label>
+                                <ul class="experience">
+                                    <li *ngFor="let edu of candidate['educ']">
+                                        <label style="color:#221668; font-weight: 400;">{{ edu['Title'] }}</label>
+                                        <label style="margin-left: 2%; font-weight: 400;">({{ edu['Starting_Year'] }} - {{ edu['Ending_Year'] }})</label>
+                                        <br>
+                                        <label style="font-weight: 400;">{{ edu['Institute'] }}</label>
+                                    </li>
+                                </ul>
+                                <ul class="skills left">
+                                    <li *ngFor="let skill of candidate['Skills'].split('\n')">{{skill}}</li>
+                                </ul>
+                            </th>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; margin-top: 30px;">
+                        <tr>
+                            <td style="width:20%; text-align: center;">
+                                <div class="cmn-link">
+                                    <a [routerLink]="" (click)="swipe_left(i)"><i class="flaticon-left-arrow one"></i>Swipe Left<i class="flaticon-left-arrow two"></i></a>
+                                </div>
+                            </td>
+                            <td style="width:60%; text-align: center;">
+                                <button class="btn dashboard-btn" (click)="view_candidate_resume(candidate)">View Resume</button>
+                                
+                                <!-- <div class="cmn-link">
+                                    <a [routerLink]="" (click)="view_candidate_resume(candidate)"><i class="flaticon-right-arrow one"></i> View Resume <i class="flaticon-right-arrow two"></i></a>
+                                </div> -->
+                            </td>
+                            <td style="width:20%; text-align: center;">
+                                <div class="cmn-link">
+                                    <a [routerLink]="" (click)="swipe_right(i)"><i class="flaticon-right-arrow one"></i>Swipe Right<i class="flaticon-right-arrow two"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+
+            <br><hr><br>
+
+            <h3>Awaiting Interview Completion</h3>
+            <div class="scrolling-wrapper" *ngFor="let candidate of global_vars.candidate_applications['interviews_schedule']; let i = index">
+                <div style="border: dashed #fe0455 0.5px; width: auto; height: auto; border-radius: 10px; padding: 10px;">
+                    <table style="width: 100%; height: auto;">
+                        <tr style="width:auto;">
+                            <th style="width: auto; text-align: center;">
+                                <img style="height: 100px; width: 100px; border-radius: 50%;" [src]="candidate['avatar']" alt="Candidate">
+                                <h3><a routerLink="/candidate-details">{{candidate["Name"]}}</a></h3>
+                                <h6>Personality Type: <strong>{{candidate["personality"]}}</strong></h6>
+                                <!-- <br> -->
+                                <span>{{candidate["Job_Title"]}}</span>
+                            </th>
+                            <th>
+                                <label style="font-size: large;">Work Experience:</label>
+                                <ul class="experience">
+                                    <li *ngFor="let work of candidate['work_exp']">
+                                        <label style="color:#221668; font-weight: 400;">{{ work['Designation'] }}</label>
+                                        <label style="margin-left: 2%; font-weight: 400;">({{ work['Starting_Year'] }} - {{ work['Ending_Year'] }})</label>
+                                        <br>
+                                        <label style="font-weight: 400;">{{ work['Company'] }}</label>
+                                    </li>
+                                </ul>
+                                <label style="font-size: large;">Education:</label>
+                                <ul class="experience">
+                                    <li *ngFor="let edu of candidate['educ']">
+                                        <label style="color:#221668; font-weight: 400;">{{ edu['Title'] }}</label>
+                                        <label style="margin-left: 2%; font-weight: 400;">({{ edu['Starting_Year'] }} - {{ edu['Ending_Year'] }})</label>
+                                        <br>
+                                        <label style="font-weight: 400;">{{ edu['Institute'] }}</label>
+                                    </li>
+                                </ul>
+                                <ul class="skills left">
+                                    <li *ngFor="let skill of candidate['Skills'].split('\n')">{{skill}}</li>
+                                </ul>
+                            </th>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; margin-top: 30px;">
+                        <tr>
+                            <td style="width:20%; text-align: center;">
+                                <div class="cmn-link">
+                                    <!-- <a [routerLink]="" (click)="swipe_left_final(i)"><i class="flaticon-left-arrow one"></i>Swipe Left<i class="flaticon-left-arrow two"></i></a> -->
+                                </div>
+                            </td>
+                            <td style="width:60%; text-align: center;">
+                                <button class="btn dashboard-btn" (click)="view_candidate_resume(candidate)">View Resume</button>
+                                
+                                <!-- <div class="cmn-link">
+                                    <a [routerLink]="" (click)="view_candidate_resume(candidate)"><i class="flaticon-right-arrow one"></i> View Resume <i class="flaticon-right-arrow two"></i></a>
+                                </div> -->
+                            </td>
+                            <td style="width:20%; text-align: center;">
+                                <div class="cmn-link">
+                                    <!-- <a [routerLink]="" (click)="swipe_right_final(i)"><i class="flaticon-right-arrow one"></i>Swipe Right<i class="flaticon-right-arrow two"></i></a> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+
+            <br><hr><br>
+
+            <h3>Interviews Completed</h3>
+
+            <div class="scrolling-wrapper" *ngFor="let candidate of global_vars.candidate_applications['interviews_complete']; let i = index">
+                <div style="border: dashed #fe0455 0.5px; width: auto; height: auto; border-radius: 10px; padding: 10px;">
+                    <table style="width: 100%; height: auto;">
+                        <tr style="width:auto;">
+                            <th style="width: auto; text-align: center;">
+                                <img style="height: 100px; width: 100px; border-radius: 50%;" [src]="candidate['avatar']" alt="Candidate">
+                                <h3><a routerLink="/candidate-details">{{candidate["Name"]}}</a></h3>
+                                <h6>Personality Type: <strong>{{candidate["personality"]}}</strong></h6>
+                                <!-- <br> -->
+                                <span>{{candidate["Job_Title"]}}</span>
+                            </th>
+                            <th>
+                                <label style="font-size: large;">Work Experience:</label>
+                                <ul class="experience">
+                                    <li *ngFor="let work of candidate['work_exp']">
+                                        <label style="color:#221668; font-weight: 400;">{{ work['Designation'] }}</label>
+                                        <label style="margin-left: 2%; font-weight: 400;">({{ work['Starting_Year'] }} - {{ work['Ending_Year'] }})</label>
+                                        <br>
+                                        <label style="font-weight: 400;">{{ work['Company'] }}</label>
+                                    </li>
+                                </ul>
+                                <label style="font-size: large;">Education:</label>
+                                <ul class="experience">
+                                    <li *ngFor="let edu of candidate['educ']">
+                                        <label style="color:#221668; font-weight: 400;">{{ edu['Title'] }}</label>
+                                        <label style="margin-left: 2%; font-weight: 400;">({{ edu['Starting_Year'] }} - {{ edu['Ending_Year'] }})</label>
+                                        <br>
+                                        <label style="font-weight: 400;">{{ edu['Institute'] }}</label>
+                                    </li>
+                                </ul>
+                                <ul class="skills left">
+                                    <li *ngFor="let skill of candidate['Skills'].split('\n')">{{skill}}</li>
+                                </ul>
+                            </th>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; margin-top: 30px;">
+                        <tr>
+                            <td style="width:20%; text-align: center;">
+                                <div class="cmn-link">
+                                    <a [routerLink]="" (click)="swipe_left_final(i)"><i class="flaticon-left-arrow one"></i>Swipe Left<i class="flaticon-left-arrow two"></i></a>
+                                </div>
+                            </td>
+                            <td style="width:60%; text-align: center;">
+                                <button class="btn dashboard-btn" (click)="view_candidate_resume(candidate)">View Resume</button>
+                                <button class="btn dashboard-btn" (click)="view_answers(candidate)">View Answers</button>
+                                
+                                <!-- <div class="cmn-link">
+                                    <a [routerLink]="" (click)="view_candidate_resume(candidate)"><i class="flaticon-right-arrow one"></i> View Resume <i class="flaticon-right-arrow two"></i></a>
+                                </div> -->
+                            </td>
+                            <td style="width:20%; text-align: center;">
+                                <div class="cmn-link">
+                                    <a [routerLink]="" (click)="swipe_right_final(i)"><i class="flaticon-right-arrow one"></i>Swipe Right<i class="flaticon-right-arrow two"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- End Candidate -->
+
+<!-- Footer -->
+<app-footer-style-two></app-footer-style-two>
+<!-- End Footer -->

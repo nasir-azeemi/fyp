@@ -1,0 +1,92 @@
+<!-- Navbar -->
+<app-navbar-style-three></app-navbar-style-three>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Job Results</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a routerLink="/">Home</a>
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Job Results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+
+
+
+<!-- Jobs -->
+<div class="job-area-list ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <h3>Accepted:</h3>
+                <div *ngFor="let job of global_vars.job_results; let i = index">
+                    <div class="employer-item" *ngIf="job['result']=='Yes'">
+                        <a [routerLink]="" (click)="view_job_details(job)" >
+                            <img [src]="job['employer_pic']" alt="Employer" height="75" width="75">
+                            <h3>{{job.Job_Title}}</h3>
+                            <ul>
+                                <li style="color:#221668">{{job.Organization_Name}}</li>
+                                <br>
+                                <li><i class="flaticon-send"></i> {{job.Location}}</li>
+                                <!-- <li>5 months ago</li> -->
+                                <li>{{job.Date_Posted}}</li>
+                            </ul>
+                            <!-- <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p> -->
+                            <span class="span-one">{{job.Industry}}</span>
+                            <span class="span-two" *ngIf="job.Job_Type == 'Full Time'">{{job.Job_Type}}</span>
+                            <span class="span-two two" *ngIf="job.Job_Type == 'Part Time'">{{job.Job_Type}}</span>
+                            <span class="span-two three" *ngIf="job.Job_Type == 'Internship'">{{job.Job_Type}}</span>
+                            <span class="span-two four" *ngIf="job.Job_Type == 'Freelancing'">{{job.Job_Type}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <h3>Rejected:</h3>
+                <div *ngFor="let job of global_vars.job_results; let i = index">
+                    <div class="employer-item" *ngIf="job['result']=='No'">
+                        <a [routerLink]="" (click)="view_job_details(job)" >
+                            <img [src]="job['employer_pic']" alt="Employer" height="75" width="75">
+                            <h3>{{job.Job_Title}}</h3>
+                            <ul>
+                                <li style="color:#221668">{{job.Organization_Name}}</li>
+                                <br>
+                                <li><i class="flaticon-send"></i> {{job.Location}}</li>
+                                <!-- <li>5 months ago</li> -->
+                                <li>{{job.Date_Posted}}</li>
+                            </ul>
+                            <!-- <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p> -->
+                            <span class="span-one">{{job.Industry}}</span>
+                            <span class="span-two" *ngIf="job.Job_Type == 'Full Time'">{{job.Job_Type}}</span>
+                            <span class="span-two two" *ngIf="job.Job_Type == 'Part Time'">{{job.Job_Type}}</span>
+                            <span class="span-two three" *ngIf="job.Job_Type == 'Internship'">{{job.Job_Type}}</span>
+                            <span class="span-two four" *ngIf="job.Job_Type == 'Freelancing'">{{job.Job_Type}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Jobs -->
+
+<!-- Footer -->
+<app-footer-style-two></app-footer-style-two>
+<!-- End Footer -->

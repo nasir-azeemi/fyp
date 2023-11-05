@@ -1,0 +1,63 @@
+<!-- Navbar -->
+<app-navbar-style-three></app-navbar-style-three>
+<!-- End Navbar -->
+
+<!-- Login -->
+<div class="user-form-area">
+    <div class="container-fluid p-0 h-100">
+        <!-- <a class="navbar-brand" routerLink="/" style="padding-top: 50px;"><img src="assets/img/logo-three - Copy.png" alt="Logo"></a> -->
+        <div class="row m-0 h-100 justify-content-center align-items-center">
+            <!-- <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-img">
+                    <img src="assets/img/resgister-bg.jpg" alt="User">
+                </div>
+            </div> -->
+            <div class="col-lg-3 p-4 col-md-3" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; -webkit-box-shadow: 0 0 0px #000; box-shadow: 0 0 0px #000;">
+                <div class="user-content">
+                    <div class="top" *ngIf="!show_input">
+                        <div class="row">
+                            <div class="col" style="width: 200px; margin-bottom: 20px;">
+                                <button type="submit" class="btn" (click)="show_candidate_input()">Login as Candidate</button>
+                            </div>
+                            
+                            <div class="col" style="width: 200px;">
+                                <button type="submit" class="btn" (click)="show_employer_input()">Login as Employer</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="top" *ngIf="show_input">
+                        <!-- <a class="navbar-brand" routerLink="/"><img src="assets/img/logo-three.png" alt="Logo"></a> -->
+                        <h2>Login</h2>
+                        
+                        <form #user_login = "ngForm" (ngSubmit) = "login(user_login.value)">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="*Email" required name="email" ngModel>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="*Password" required name="password" ngModel>
+                            </div>
+
+                            <button type="submit" class="btn">Login Here</button>
+                        </form>
+                        <p style="color: red;" [hidden]="this.global_vars.hide_error">{{this.global_vars.error}}</p>
+                        <br>
+                        <!-- <button type="button" class="btn" (click)="to_register()">First time user? Register Here</button> -->
+                        <a [routerLink]="[]" (click)="to_register()">First time user? Register Here</a>
+                    </div>
+
+                    <div class="end">
+                        <ul>
+                            <li><a href="#" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                            <li><a href="#" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                            <li><a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                            <li><a href="#" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Login -->

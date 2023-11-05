@@ -1,0 +1,240 @@
+<!-- Navbar -->
+<app-navbar-style-three></app-navbar-style-three>
+<!-- End Navbar -->
+
+<!-- Page Title -->
+<div class="page-title-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="title-item">
+                    <h2>Assessments</h2>
+                    <ul>
+                        <li>
+                            <img src="assets/img/home-three/title-img-two.png" alt="Image">
+                            <a routerLink="/">Home</a>
+                        </li>
+                        <li><span>/</span></li>
+                        <li>Assessments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title -->
+
+<!-- Dashboard -->
+<div class="dashboard-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="profile-item">
+                    <h2>Assessment XYZ</h2>
+                </div>
+
+                <br>
+
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class='bx bx-edit'></i> Assessment in Progress</a>
+                    
+                    <a  routerLink="/assessments">
+                        <div class="profile-list"><i class='bx bx-notepad'></i> My Assessments</div>
+                    </a>
+
+
+                    <a  routerLink="/login">
+                        <div class="profile-list"><i class='bx bx-log-out'></i> Logout</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="heading" *ngIf="taking_test == true">
+                            <h1>Complete the Test</h1>
+                            <br>
+                            <h4>Be yourself and answer honestly.</h4>
+                            <br>
+                        </div>
+
+                        <div class="heading" *ngIf="taking_test == false">
+                            <h1>Test Completed!</h1>
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="profile-content" *ngIf="taking_test == true">
+                            <div class="row">
+                                <table>
+                                    <tr>
+                                        
+                                        <td>
+                                            <div class="col-lg-1 col-md-6">
+                                                <button type="submit" class="btn back-btn" (click)="back_question()" style="border-radius: 40%;"><i class="fas fa-chevron-left"></i></button>
+                                            </div>
+                                        </td>
+                                        
+                                        <td>
+                                            <div class="col-lg-1 col-md-6">
+                                                <label>Q{{ global_vars.current_question_number }}/{{ global_vars.assessment_questions["Question_Amount"] }}</label>
+                                            </div>
+                                        </td>
+
+
+                                        <td>
+                                            <div class="col-lg-1 col-md-6">
+                                                <button type="submit" class="btn back-btn" (click)="next_question()" style="border-radius: 40%;"><i class="fas fa-chevron-right"></i></button>
+                                            </div>
+                                        </td>
+                                    
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="profile-content-inner" style="border-radius: 25px; color: #221668; padding-top: 20px;">
+                                <label style="font-size: large; font-weight: bold;">
+                                    {{global_vars.current_question}}
+                                </label>
+
+
+                                <!-- <div class="row d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 10px;"> -->
+                                <table class="center" *ngIf="global_vars.assessment_questions.Reply_Type == '1'">
+                                    <tr>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6" style="margin-top: 10px; margin-right: 20px;"> -->
+                                                <label>Disagree</label>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn st_disagree-btn" (click)="clicked('1')" id="1"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn disagree-btn" (click)="clicked('2')" id="2"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn sl_disagree-btn" (click)="clicked('3')" id="3"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn neutral-btn" (click)="clicked('4')" id="4"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn sl_agree-btn" (click)="clicked('5')" id="5"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn agree-btn" (click)="clicked('6')" id="6"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn st_agree-btn" (click)="clicked('7')" id="7"></button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6" style="margin-top: 10px;"> -->
+                                                <label>Agree</label>
+                                            <!-- </div> -->
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table class="center" *ngIf="global_vars.assessment_questions.Reply_Type == '2'">
+                                    <tr>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn btn-1" (click)="clicked('1')" id="1">{{ global_vars.current_reply1 }}</button>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <!-- <div class="col-lg-1 col-md-6"> -->
+                                                <button type="submit" class="btn btn-2" (click)="clicked('2')" id="2">{{ global_vars.current_reply2 }}</button>
+                                            <!-- </div> -->
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+                        <div class="profile-content" *ngIf="taking_test == false">
+                            <div class="profile-content-inner" style="border-radius: 25px; color: #221668; padding-top: 20px;">
+                                <label style="font-size: large; font-weight: bold;">
+                                    Result:
+                                </label>
+                                <div *ngFor="let result_ of global_vars.assessment_result">
+                                    <label style="font-size: large; font-weight: bold;">
+                                        {{ result_ }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn dashboard-btn" (click)="to_assessments()">Finish</button>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div class="employer-item">
+                            <a routerLink="/job-details">
+                                <img src="assets/img/home-one/job1.png" alt="Employer">
+                                <h3>Product Designer</h3>
+                                <ul>
+                                    <li><i class="flaticon-send"></i> Los Angeles, CS, USA</li>
+                                    <li>5 months ago</li>
+                                </ul>
+                                <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                                <span class="span-one">Accounting</span>
+                                <span class="span-two">FULL TIME</span>
+                            </a>
+                        </div>
+
+                        <div class="employer-item">
+                            <a routerLink="/job-details">
+                                <img src="assets/img/home-one/job2.png" alt="Employer">
+                                <h3>Sr. Shopify Developer</h3>
+                                <ul>
+                                    <li><i class="flaticon-send"></i> Houston, TX, USA</li>
+                                    <li>4 months ago</li>
+                                </ul>
+                                <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                <span class="span-one">Accounting</span>
+                                <span class="span-two two">FULL TIME</span>
+                            </a>
+                        </div>
+
+                        <div class="employer-item">
+                            <a routerLink="/job-details">
+                                <img src="assets/img/home-one/job3.png" alt="Employer">
+                                <h3>Tax Manager</h3>
+                                <ul>
+                                    <li><i class="flaticon-send"></i> Ho Chi Minh City, Vietnam</li>
+                                    <li>6 months ago</li>
+                                </ul>
+                                <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                <span class="span-one two">Broardcasting</span>
+                                <span class="span-two three">FREELANCER</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
+<!-- End Dashboard -->
+
+<!-- Footer -->
+<app-footer-style-two></app-footer-style-two>
+<!-- End Footer -->

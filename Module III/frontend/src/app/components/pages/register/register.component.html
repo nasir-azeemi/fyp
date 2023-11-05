@@ -1,0 +1,55 @@
+<!-- Register -->
+<div class="user-form-area">
+    <div class="container-fluid p-0">
+        <div class="row m-0 align-items-center">
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-img">
+                    <img src="assets/img/resgister-bg.jpg" alt="User">
+                </div>
+            </div>
+
+            <div class="col-lg-6 p-0 col-md-12">
+                <div class="user-content">
+                    <div class="top">
+                        <h2>Register</h2>
+
+                        <form #user_register = "ngForm" (ngSubmit) = "register(user_register.value)">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="*Name" required name="name" ngModel>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="*Email" required name="email" ngModel>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="*Phone" required name="phone" ngModel>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="*Password" required name="password" ngModel>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="*Confirm Password" required name="confirm_password" ngModel>
+                            </div>
+
+                            <button type="submit" class="btn">Register Here</button>
+                        </form>
+                        <p style="color: red;" [hidden]="this.global_vars.hide_error">{{this.global_vars.error}}</p>
+                    </div>
+
+                    <div class="end">
+                        <ul>
+                            <li><a href="#" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                            <li><a href="#" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                            <li><a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                            <li><a href="#" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Register -->

@@ -1,0 +1,440 @@
+$transition: .5s all ease;
+$blue-color: #221668;
+
+$agree-border: #33a474;
+$agree-text: #259466;
+
+$neutral-border: #9b9faa;
+
+$disagree-border: #88619a;
+$disagree-text: #775388;
+
+$box-background: #f5f5f5;
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 100%;
+    color: #212121;
+    transition: $transition;
+    font-weight: 500;
+
+    &:hover {
+        background-color: #f5f5f5;
+    }
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+.rcorners1 {
+    border-radius: 25px;
+    background: white;
+    padding: 20px; 
+    width: 300px;
+    height: 200px;  
+    color: $blue-color;
+    text-align: center;
+}
+
+.heading {
+    color: $blue-color;
+    text-align: center;
+}
+
+label {
+    font-size: medium;
+}
+
+.st_agree-btn {
+    font-size: small;
+    width: 50px;
+    height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    border-radius: 5px;
+    color: $agree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $agree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $agree-border;
+        color: white;
+    }
+}
+
+.agree-btn {
+    font-size: small;
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    border-radius: 5px;
+    color: $agree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $agree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $agree-border;
+        color: white;
+    }
+}
+
+.sl_agree-btn {
+    font-size: small;
+    width: 30px;
+    height: 30px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    border-radius: 5px;
+    color: $agree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $agree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $agree-border;
+        color: white;
+    }
+}
+
+.neutral-btn {
+    font-size: small;
+    width: 20px;
+    height: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $neutral-border;
+    border-radius: 5px;
+    color: $disagree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $neutral-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $neutral-border;
+        color: white;
+    }
+}
+
+.sl_disagree-btn {
+    font-size: small;
+    width: 30px;
+    height: 30px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    border-radius: 5px;
+    color: $disagree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $disagree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $disagree-border;
+        color: white;
+    }
+}
+
+.disagree-btn {
+    font-size: small;
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    border-radius: 5px;
+    color: $disagree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $disagree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $disagree-border;
+        color: white;
+    }
+}
+
+.st_disagree-btn {
+    font-size: small;
+    width: 50px;
+    height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    border-radius: 5px;
+    color: $disagree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $disagree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $disagree-border;
+        color: white;
+    }
+}
+
+
+
+
+.st_agree-btn-clicked {
+    font-size: small;
+    width: 50px;
+    height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $agree-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+.agree-btn-clicked {
+    font-size: small;
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $agree-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+.sl_agree-btn-clicked {
+    font-size: small;
+    width: 30px;
+    height: 30px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $agree-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+.neutral-btn-clicked {
+    font-size: small;
+    width: 20px;
+    height: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $neutral-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $neutral-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+
+.sl_disagree-btn-clicked {
+    font-size: small;
+    width: 30px;
+    height: 30px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $disagree-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+.disagree-btn-clicked {
+    font-size: small;
+    width: 40px;
+    height: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $disagree-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+.st_disagree-btn-clicked {
+    font-size: small;
+    width: 50px;
+    height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    border-radius: 5px;
+    color: white;
+    background-color: $disagree-border;
+    transition: $transition;
+    font-weight: 500;
+    outline-style:initial;
+    border-radius: 50%;
+}
+
+.btn-1 {
+    font-size: small;
+    // width: 50px;
+    // height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $disagree-border;
+    // border-radius: 5px;
+    color: $disagree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    // outline-style:initial;
+    // border-radius: 50%;
+
+    &:hover {
+        background-color: $disagree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $disagree-border;
+        color: white;
+    }
+}
+
+.btn-2 {
+    font-size: small;
+    // width: 50px;
+    // height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $agree-border;
+    // border-radius: 5px;
+    color: $agree-text;
+    background-color: $box-background;
+    transition: $transition;
+    font-weight: 500;
+    // outline-style:initial;
+    // border-radius: 50%;
+
+    &:hover {
+        background-color: $agree-border;
+        color: white;
+    }
+
+    &:focus {
+        background-color: $agree-border;
+        color: white;
+    }
+}
+
+td {
+    // margin-right: 40px;
+    // margin-left: 40px;
+
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+}
